@@ -83,3 +83,7 @@ Tests/BigIntegers/IMag.TestBigIntegers.pas
 !Tests/BigNumberTests.groupproj
 *.hpp
 !**/Velthuis.BigIntegers.operators.hpp
+*.o
+*.a
+*.dcp
+*.res

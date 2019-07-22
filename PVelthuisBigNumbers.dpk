@@ -35,12 +35,13 @@ contains
   Velthuis.BigDecimals in 'source\Velthuis.BigDecimals.pas',
   Velthuis.BigIntegers in 'source\Velthuis.BigIntegers.pas',
   Velthuis.BigIntegers.Primes in 'source\Velthuis.BigIntegers.Primes.pas',
-  Velthuis.BigRationals in 'source\Velthuis.BigRationals.pas',
   Velthuis.ExactFloatStrings in 'source\Velthuis.ExactFloatStrings.pas',
   Velthuis.FloatUtils in 'source\Velthuis.FloatUtils.pas',
   Velthuis.Loggers in 'source\Velthuis.Loggers.pas',
   Velthuis.Numerics in 'source\Velthuis.Numerics.pas',
   Velthuis.RandomNumbers in 'source\Velthuis.RandomNumbers.pas',
-  Velthuis.Sizes in 'source\Velthuis.Sizes.pas';
+  Velthuis.Sizes in 'source\Velthuis.Sizes.pas',
+  CompilerAndRTLVersions in 'Source\CompilerAndRTLVersions.pas',
+  Velthuis.StrConsts in 'Source\Velthuis.StrConsts.pas';
 
 end.

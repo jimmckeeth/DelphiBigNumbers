@@ -601,11 +601,12 @@ var
   LError: Double;
   I: Integer;
   NewRatio, Ratio: Double;
-  Rest, Rest0, Inverse, Inverse0: Double;
+  Rest, {Rest0,} Inverse{, Inverse0}: Double;
   K, H: array[0..2] of Int64;
   A: Int64;
   LNum, LDenom: BigInteger;
 begin
+  Ratio := 0.0;
   LQuot := 0.0;
 
   if IsInfinite(Value) or IsNaN(Value) then
@@ -659,8 +660,8 @@ begin
     end
     else
     begin
-      A := Trunc(Inverse0);
-      Rest := Inverse0 - A;
+      A := Trunc(Inverse);
+      Rest := Inverse - A;
       if Rest = 0.0 then
         Rest := Epsilon;
       Inverse := 1.0 / Rest;
@@ -688,9 +689,9 @@ begin
     K[1] := K[2];
     H[0] := H[1];
     H[1] := H[2];
-    Inverse0 := Inverse;
-    Rest0 := Rest;
-    if Inverse0 > MaxInt then
+    //Inverse0 := Inverse;
+    //Rest0 := Rest;
+    if Inverse > MaxInt then
       Break;
   end;
   LNum := K[1];
