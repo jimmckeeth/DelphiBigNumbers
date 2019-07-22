@@ -40,7 +40,7 @@ info.plist.TemplateOSX.xml
 *.exe
 *.dll
 *.tvsconfig
-*.groupproj
+# *.groupproj
 *.groupproj.local
 *.todo
 *.txaPackage
