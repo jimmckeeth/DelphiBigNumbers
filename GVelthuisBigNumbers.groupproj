@@ -37,7 +37,7 @@
         <BuildGroupProject Include="PVelthuisBigNumbers.dproj">
             <ProjectGuid>{0C1E2305-E0D6-4E9A-B0EF-A2967194C44D}</ProjectGuid>
             <Configurations>Debug;Release</Configurations>
-            <Platforms>Android;iOSDevice32;iOSDevice64;Win32;Win64</Platforms>
+            <Platforms>Android;iOSDevice64;Win32;Win64</Platforms>
             <Enabled>True</Enabled>
         </BuildGroupProject>
     </ItemGroup>
