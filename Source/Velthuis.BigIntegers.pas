@@ -411,6 +411,8 @@ type
     /// <summary>Returns True if the BigInteger represents a value of 1.</summary>
     function IsOne: Boolean;
 
+    /// <summary>Returns True if the BigInteger is odd (0 is not odd).</summary>
+    function IsOdd: Boolean;
 
     // -- Bit fiddling --
 
@@ -3127,6 +3129,11 @@ end;
 function BigInteger.IsPositive: Boolean;
 begin
   Result := Assigned(FData) and (FSize > 0);
+end;
+
+function BigInteger.IsOdd: Boolean;
+begin
+  Result := not IsEven;
 end;
 
 function BigInteger.IsPowerOfTwo: Boolean;

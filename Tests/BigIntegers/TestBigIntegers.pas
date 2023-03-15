@@ -47,6 +47,7 @@ type
     procedure TestIsPositive;
     procedure TestIsEven;
     procedure TestIsPowerOfTwo;
+    procedure TestIsOdd;
     procedure TestIsOne;
     procedure TestToString;
     procedure TestToHex;
@@ -207,6 +208,19 @@ begin
   CheckTrue(C.IsEven);
   CheckFalse(D.IsEven);
   CheckTrue(E.IsEven);
+end;
+
+procedure TTestBigInteger.TestIsOdd;
+begin
+  CheckFalse(BigInteger.Ten.IsOdd);
+  CheckTrue(BigInteger.One.IsOdd);
+  CheckTrue(BigInteger.MinusOne.IsOdd);
+  CheckFalse(BigInteger.Zero.IsOdd);
+
+  CheckFalse(BigInteger.Create(-1234).IsOdd);
+  CheckFalse(BigInteger.Create(1234).IsOdd);
+  CheckTrue(BigInteger.Create(-1233).IsOdd);
+  CheckTrue(BigInteger.Create(1233).IsOdd);
 end;
 
 procedure TTestBigInteger.TestIsPowerOfTwo;

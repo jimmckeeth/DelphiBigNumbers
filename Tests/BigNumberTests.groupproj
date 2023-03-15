@@ -9,10 +9,10 @@
         <Projects Include="..\Visualizers\BigNumberVisualizers.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="BigIntegers\BigIntegerDevelopmentTests.dproj">
+        <Projects Include="..\Visualizers\BigNumVisualizers.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\Visualizers\BigNumVisualizers.dproj">
+        <Projects Include="BigIntegers\BigIntegerDevelopmentTests.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="BigDecimals\BigDecimalDevelopmentTests.dproj">
@@ -47,15 +47,6 @@
     <Target Name="BigNumberVisualizers:Make">
         <MSBuild Projects="..\Visualizers\BigNumberVisualizers.dproj" Targets="Make"/>
     </Target>
-    <Target Name="BigIntegerDevelopmentTests">
-        <MSBuild Projects="BigIntegers\BigIntegerDevelopmentTests.dproj"/>
-    </Target>
-    <Target Name="BigIntegerDevelopmentTests:Clean">
-        <MSBuild Projects="BigIntegers\BigIntegerDevelopmentTests.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="BigIntegerDevelopmentTests:Make">
-        <MSBuild Projects="BigIntegers\BigIntegerDevelopmentTests.dproj" Targets="Make"/>
-    </Target>
     <Target Name="BigNumVisualizers">
         <MSBuild Projects="..\Visualizers\BigNumVisualizers.dproj"/>
     </Target>
@@ -64,6 +55,15 @@
     </Target>
     <Target Name="BigNumVisualizers:Make">
         <MSBuild Projects="..\Visualizers\BigNumVisualizers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BigIntegerDevelopmentTests">
+        <MSBuild Projects="BigIntegers\BigIntegerDevelopmentTests.dproj"/>
+    </Target>
+    <Target Name="BigIntegerDevelopmentTests:Clean">
+        <MSBuild Projects="BigIntegers\BigIntegerDevelopmentTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigIntegerDevelopmentTests:Make">
+        <MSBuild Projects="BigIntegers\BigIntegerDevelopmentTests.dproj" Targets="Make"/>
     </Target>
     <Target Name="BigDecimalDevelopmentTests">
         <MSBuild Projects="BigDecimals\BigDecimalDevelopmentTests.dproj"/>
@@ -84,13 +84,13 @@
         <MSBuild Projects="BigRationals\BigRationalDevelopmentTests.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="BigNumbers;BigNumberVisualizers;BigIntegerDevelopmentTests;BigNumVisualizers;BigDecimalDevelopmentTests;BigRationalDevelopmentTests"/>
+        <CallTarget Targets="BigNumbers;BigNumberVisualizers;BigNumVisualizers;BigIntegerDevelopmentTests;BigDecimalDevelopmentTests;BigRationalDevelopmentTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="BigNumbers:Clean;BigNumberVisualizers:Clean;BigIntegerDevelopmentTests:Clean;BigNumVisualizers:Clean;BigDecimalDevelopmentTests:Clean;BigRationalDevelopmentTests:Clean"/>
+        <CallTarget Targets="BigNumbers:Clean;BigNumberVisualizers:Clean;BigNumVisualizers:Clean;BigIntegerDevelopmentTests:Clean;BigDecimalDevelopmentTests:Clean;BigRationalDevelopmentTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="BigNumbers:Make;BigNumberVisualizers:Make;BigIntegerDevelopmentTests:Make;BigNumVisualizers:Make;BigDecimalDevelopmentTests:Make;BigRationalDevelopmentTests:Make"/>
+        <CallTarget Targets="BigNumbers:Make;BigNumberVisualizers:Make;BigNumVisualizers:Make;BigIntegerDevelopmentTests:Make;BigDecimalDevelopmentTests:Make;BigRationalDevelopmentTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
