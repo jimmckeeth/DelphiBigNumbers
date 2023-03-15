@@ -50,105 +50,10 @@
 {                                                                            }
 { -------------------------------------------------------------------------- }
 {                                                                            }
-{ License:    Redistribution and use in source and binary forms, with or     }
-{             without modification, are permitted provided that the          }
-{             following conditions are met:                                  }
+{ License:    BSD 2-Clause License - See LICENSE.md                          }
 {                                                                            }
-{             * Redistributions of source code must retain the above         }
-{               copyright notices, this list of conditions and the           }
-{               following disclaimer.                                        }
-{             * Redistributions in binary form must reproduce the above      }
-{               copyright notice, this list of conditions and the following  }
-{               disclaimer in the documentation and/or other materials       }
-{               provided with the distribution.                              }
-{                                                                            }
-{ Disclaimer: THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS "AS IS"     }
-{             AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT      }
-{             LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND      }
-{             FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO         }
-{             EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE      }
-{             FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,      }
-{             OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,       }
-{             PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,      }
-{             DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED     }
-{             AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT    }
-{             LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)         }
-{             ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF    }
-{             ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                     }
-{                                                                            }
-{----------------------------------------------------------------------------}
-
-{----------------------------------------------------------------------------}
-{ Corrections:                                                               }
-{                                                                            }
-{   2015-11-28: Changed calls to System.@GetMem in System.AllocMem.          }
-{               GetMem does not clear memory. This caused occasional bad     }
-{               results.                                                     }
-{                                                                            }
-{   2015-11-29: Changed all references to CPUX86 and CPUX64 to CPU32BITS     }
-{               and CPU64BITS, respectively. The former are not defined      }
-{               outside MS Windows.                                          }
-{                                                                            }
-{   2016-01-24: Changed internals of DivMod. There could be problems if the  }
-{               dividend and the quotient were identical.                    }
-{                                                                            }
-{   2016-01-24: Changed ToString(Base). The old slow method simply           }
-{               divided the entire BigInteger by base and added the          }
-{               remainder as digit, digit by digit.                          }
-{               This is still available as ToStringClassic, for debugging    }
-{               purposes. ToStringClassic will be removed later on, if new   }
-{               methods are secured.                                         }
-{               The newer methods do either shift (base 2, 4, 16), convert   }
-{               entire limbs or, for large values, use a divide-and-conquer  }
-{               algorithm.                                                   }
-{                                                                            }
-{   2016-02-02: Changed PUREPASCAL version of InternalDivMod, removing an    }
-{               obscure, seldom bug that was caused by an uncaught overflow. }
-{                                                                            }
-{   2016-02-03: Added operator Explicit(BigInteger): string, which simply    }
-{               calls ToString to generate the result.                       }
-{                                                                            }
-{   2016-08-23: Changed Remainder(... UInt32) and Remainder(... UInt16).     }
-{               InternalDivMod32 did not return True, and on False,          }
-{               Remainder gave wrong error message.                          }
-{                                                                            }
-{   2016-12-27: Added ModInverse.                                            }
-{               Optimized and renamed MakeLength to AllocNewMagnitude.       }
-{                                                                            }
-{   2016-12-29: Changed return type of Compare() to Integer. Using           }
-{               TValueSign made inlining several comparison operators        }
-{               harder, since that required System.Math.                     }
-{                                                                            }
-{   2016-12-30: Changed implementation of ModInverse to 20% faster version.  }
-{                                                                            }
-{   2017-01-08: Updated Pow to remove trailing bits before exponentiation    }
-{               and putting them back afterward.                             }
-{                                                                            }
-{   2017-01-13: DivModKnuth now eliminates common trailing zero limbs        }
-{               before attempting the division.                              }
-{               So $123400000000000000000 div $4560000000000000000 is        }
-{               performed as $1234 div $456. The mod result is of course     }
-{               corrected.                                                   }
-{                                                                            }
-{   2017-01-15: Reworked SetBit, ClearBit and FlipBit.                       }
-{                                                                            }
-{   2017-07-14: Changed all manual aligns to use .ALIGN 16                   }
-{                                                                            }
-{   2017-08-17: Removed buffer overflow bugs in InternalMultiplyAndAdd16 and }
-{               UncheckedDivModKnuth. Also removed bug from                  }
-{               InternalShiftLeft. All after using FastMM4 in full debug     }
-{               mode (which adds extra footer bytes to every allocation).    }
-{                                                                            }
-{   2017-08-18: Some more buffer overruns (badly dimensioned magnitudes)     }
-{               removed.                                                     }
-{                                                                            }
-{   2017-08-22: Improved speed of Win32 InternalAddPurePascal by using 16    }
-{               bit additions, removing need for costly carry emulation.     }
-{                                                                            }
-{----------------------------------------------------------------------------}
-{   Newer changes can be read from the GitHub repository:                    }
-{   https://github.com/rvelthuis/DelphiBigNumbers                            }
-{----------------------------------------------------------------------------}
+{ Latest:     https://github.com/jimmckeeth/DelphiBigNumbers/                }
+{--------------------------------------------------------------------------- }
 
 unit Velthuis.BigIntegers;
 
