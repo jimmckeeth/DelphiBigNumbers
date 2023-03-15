@@ -40,7 +40,7 @@ info.plist.TemplateOSX.xml
 *.exe
 *.dll
 *.tvsconfig
-*.groupproj
+# *.groupproj
 *.groupproj.local
 *.todo
 *.txaPackage
@@ -83,3 +83,7 @@ Tests/BigIntegers/IMag.TestBigIntegers.pas
 !Tests/BigNumberTests.groupproj
 *.hpp
 !**/Velthuis.BigIntegers.operators.hpp
+*.o
+*.a
+*.dcp
+*.res

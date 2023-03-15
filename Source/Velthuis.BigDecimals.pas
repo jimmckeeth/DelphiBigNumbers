@@ -112,12 +112,12 @@ uses
 
 {$IF CompilerVersion >= CompilerVersionDelphi2010}   // Delphi 2010
   {$DEFINE HasClassConstructors}
-{$IFEND}
+{$ENDIF}
 
 {$IF CompilerVersion >= CompilerVersionDelphiXE}
   {$CODEALIGN 16}
   {$ALIGN 16}
-{$IFEND}
+{$ENDIF}
 
 {$IF CompilerVersion >= CompilerVersionDelphiXE3}
   {$LEGACYIFEND ON}
