@@ -746,7 +746,7 @@ type
     function Sqrt: BigDecimal; overload;
 
     /// <summary>Returns the integer power of the current BigDecimal, with unlimited precision.</summary>
-    function IntPower(Exponent: Integer): BigDecimal; overload;
+    function IntPowerSelf(Exponent: Integer): BigDecimal;
 
     /// <summary>Returns the integer power of the current BigDecimal, with the given precision.</summary>
     function IntPower(Exponent, Precision: Integer): BigDecimal; overload;
@@ -771,6 +771,21 @@ type
     /// <summary>Returns a plain string under certain conditions, otherwise returns scientific notation.</summary>
     /// <remarks>This uses the given FormatSettings for the decimal point Char.</remarks>
     function ToString(const Settings: TFormatSettings): string; overload;
+
+
+    /// <summary>Returns the sum of self and given parameter. The new scale is Max(Self.Scale, Right.Scale).</summary>
+    function AddSelf(const Right: BigDecimal): BigDecimal;
+    /// <summary>Returns the difference of self and given parameter. The new scale is Max(Self.Scale, Right.Scale).</summary>
+    function SubtractSelf(const Right: BigDecimal): BigDecimal;
+    /// <summary>Returns the difference of self and given parameter. The new scale is Max(Self.Scale, Right.Scale).</summary>
+    function MultiplySelf(const Right: BigDecimal): BigDecimal; 
+    /// <summary><para>Returns the quotient of self and given Divisor.</para>
+    /// <para>Raises an exception if the value of Divisor is equal to 0.</para>
+    /// <para>Uses the default rounding mode and precision.
+    /// Raises an exception if the rounding mode is rmUnnecessary, but rounding turns out to be necessary.</para>
+    /// <para>The preferred new scale is Self.Scale - Divisor.Scale. Removes any trailing zero digits to
+    /// approach that preferred scale without altering the significant digits.</para></summary>
+    function DivideSelf(const Divisor: BigDecimal): BigDecimal;
 
 
     // -- Class properties --
@@ -930,6 +945,26 @@ end;
 class operator BigDecimal.Add(const Left, Right: BigDecimal): BigDecimal;
 begin
   Result := Add(Left, Right);
+end;
+
+function BigDecimal.AddSelf(const Right: BigDecimal): BigDecimal;
+begin
+  Result := BigDecimal.Add(self, Right);
+end;
+
+function BigDecimal.DivideSelf(const Divisor: BigDecimal): BigDecimal;
+begin
+  Result := BigDecimal.Divide(Self, Divisor);
+end;
+
+function BigDecimal.MultiplySelf(const Right: BigDecimal): BigDecimal;
+begin
+  Result := BigDecimal.Multiply(Self, Right);
+end;
+
+function BigDecimal.SubtractSelf(const Right: BigDecimal): BigDecimal;
+begin
+  Result := BigDecimal.Subtract(Self, Right);
 end;
 
 ////////////////////////////////////////////////////
@@ -1926,7 +1961,7 @@ begin
   Result := IntPower(Self, Exponent, Precision);
 end;
 
-function BigDecimal.IntPower(Exponent: Integer): BigDecimal;
+function BigDecimal.IntPowerSelf(Exponent: Integer): BigDecimal;
 begin
   Result := IntPower(Self, Exponent);
 end;
