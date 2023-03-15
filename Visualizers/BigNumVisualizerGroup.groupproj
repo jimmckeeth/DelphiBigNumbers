@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{56E34B7D-69CF-4D0F-B5F2-CA08264A1AB2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BigNumbers.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BigNumVisualizers.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BigNumberVisualizers.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BigNumbers">
+        <MSBuild Projects="BigNumbers.dproj"/>
+    </Target>
+    <Target Name="BigNumbers:Clean">
+        <MSBuild Projects="BigNumbers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigNumbers:Make">
+        <MSBuild Projects="BigNumbers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BigNumVisualizers">
+        <MSBuild Projects="BigNumVisualizers.dproj"/>
+    </Target>
+    <Target Name="BigNumVisualizers:Clean">
+        <MSBuild Projects="BigNumVisualizers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigNumVisualizers:Make">
+        <MSBuild Projects="BigNumVisualizers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BigNumberVisualizers">
+        <MSBuild Projects="BigNumberVisualizers.dproj"/>
+    </Target>
+    <Target Name="BigNumberVisualizers:Clean">
+        <MSBuild Projects="BigNumberVisualizers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigNumberVisualizers:Make">
+        <MSBuild Projects="BigNumberVisualizers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BigNumbers;BigNumVisualizers;BigNumberVisualizers"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BigNumbers:Clean;BigNumVisualizers:Clean;BigNumberVisualizers:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BigNumbers:Make;BigNumVisualizers:Make;BigNumberVisualizers:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
