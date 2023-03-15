@@ -2,7 +2,7 @@
     <PropertyGroup>
         <Base>True</Base>
         <AppType>Package</AppType>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <FrameworkType>None</FrameworkType>
         <MainSource>BigNumVisualizers.dpk</MainSource>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -40,7 +40,7 @@
         <DCC_ImageBase>00400000</DCC_ImageBase>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DesignOnlyPackage>true</DesignOnlyPackage>
-        <DllSuffix>230</DllSuffix>
+        <DllSuffix>280</DllSuffix>
         <GenDll>true</GenDll>
         <GenPackage>true</GenPackage>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>

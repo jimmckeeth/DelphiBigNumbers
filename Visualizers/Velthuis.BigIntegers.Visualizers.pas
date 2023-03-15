@@ -102,12 +102,14 @@ type
     procedure EvaluteComplete(const ExprStr, ResultStr: string; CanModify: Boolean; ResultAddress, ResultSize: Cardinal; ReturnCode: Integer);
     procedure ModifyComplete(const ExprStr, ResultStr: string; ReturnCode: Integer);
     procedure ThreadNotify(Reason: TOTANotifyReason);
+
     procedure AfterSave;
     procedure BeforeSave;
     procedure Destroyed;
     procedure Modified;
     // IOTAThreadNotifier160
-    procedure EvaluateComplete(const ExprStr, ResultStr: string; CanModify: Boolean; ResultAddress: TOTAAddress; ResultSize: Longword; ReturnCode: Integer);
+    procedure EvaluateComplete(const ExprStr, ResultStr: string; CanModify: Boolean; ResultAddress: TOTAAddress; ResultSize: Longword; ReturnCode: Integer); overload;
+    procedure EvaluateComplete(const ExprStr, ResultStr: string; CanModify: Boolean; ResultAddress, ResultSize: LongWord; ReturnCode: Integer); overload;
   end;
 
 { TDebuggerBigIntegerVisualizer }
@@ -131,6 +133,13 @@ end;
 procedure TDebuggerBigIntegerVisualizer.Destroyed;
 begin
   // Can be ignored.
+end;
+
+procedure TDebuggerBigIntegerVisualizer.EvaluateComplete(const ExprStr,
+  ResultStr: string; CanModify: Boolean; ResultAddress,
+  ResultSize: LongWord; ReturnCode: Integer);
+begin
+  EvaluateComplete(ExprStr, ResultStr, CanModify, TOTAAddress(ResultAddress), Longword(ResultSize), ReturnCode);
 end;
 
 procedure TDebuggerBigIntegerVisualizer.EvaluteComplete(const ExprStr, ResultStr: string; CanModify: Boolean;

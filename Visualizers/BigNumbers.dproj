@@ -2,7 +2,7 @@
     <PropertyGroup>
         <Base>True</Base>
         <AppType>Package</AppType>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <FrameworkType>None</FrameworkType>
         <MainSource>BigNumbers.dpk</MainSource>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -34,11 +34,12 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
+    <Import Project="..\..\..\Embarcadero\Studio\default_all_BPL.optset" Condition="'$(Base)'!='' And Exists('..\..\..\Embarcadero\Studio\default_all_BPL.optset')"/>
     <PropertyGroup Condition="'$(Base)'!=''">
         <SanitizedProjectName>BigNumbers</SanitizedProjectName>
+        <CfgDependentOn>..\..\..\Embarcadero\Studio\default_all_BPL.optset</CfgDependentOn>
         <DCC_ImageBase>00400000</DCC_ImageBase>
-        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
-        <DllSuffix>230</DllSuffix>
+        <DllSuffix>280</DllSuffix>
         <GenDll>true</GenDll>
         <GenPackage>true</GenPackage>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=</VerInfo_Keys>
@@ -52,9 +53,10 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
+    <Import Project="..\..\..\Embarcadero\Studio\default_release_BPL.optset" Condition="'$(Cfg_1)'!='' And Exists('..\..\..\Embarcadero\Studio\default_release_BPL.optset')"/>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <CfgDependentOn>..\..\..\Embarcadero\Studio\default_release_BPL.optset</CfgDependentOn>
         <DCC_DebugInformation>0</DCC_DebugInformation>
-        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
     </PropertyGroup>
@@ -90,10 +92,12 @@
         <None Include="LibSuffixes.inc"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
+            <DependentOn>..\..\..\Embarcadero\Studio\default_all_BPL.optset</DependentOn>
         </BuildConfiguration>
         <BuildConfiguration Include="Release">
             <Key>Cfg_1</Key>
             <CfgParent>Base</CfgParent>
+            <DependentOn>..\..\..\Embarcadero\Studio\default_release_BPL.optset</DependentOn>
         </BuildConfiguration>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

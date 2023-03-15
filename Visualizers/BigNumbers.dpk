@@ -26,8 +26,8 @@ package BigNumbers;
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'Velthuis BigInteger and BigDecimal for Delphi'}
-{$LIBSUFFIX '260'}
 {$IMPLICITBUILD ON}
+{$LIBSUFFIX '280'}
 
 requires
   rtl;
@@ -47,6 +47,3 @@ contains
   CompilerAndRTLVersions in '..\Source\CompilerAndRTLVersions.pas';
 
 end.
-
-
-

@@ -26,7 +26,7 @@ package BigNumVisualizers;
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'Velthuis Debug Visualizers for BigInteger and BigDecimal types'}
-{$LIBSUFFIX '260'}
+{$LIBSUFFIX '280'}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
 
@@ -39,4 +39,3 @@ contains
   Velthuis.BigIntegers.Visualizers in 'Velthuis.BigIntegers.Visualizers.pas';
 
 end.
-
