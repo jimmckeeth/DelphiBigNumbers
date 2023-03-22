@@ -1,4 +1,6 @@
-Rudy Belthuis is the orignal author of this library. He unfortunately passed away a while back. In an effort to keep this very valuable library alive:
+# Delphi Big Numbers
+
+Rudy Belthuis is the orignal author of this library. He unfortunately passed away a while back. In an effort to keep this very valuable library alive I've done the following:
 
 * Pulled the changes from [all the other branches](https://github.com/jimmckeeth/DelphiBigNumbers/network) into this repository
 * Created [Wiki articles](https://github.com/jimmckeeth/DelphiBigNumbers/wiki) based on his original documentation 
