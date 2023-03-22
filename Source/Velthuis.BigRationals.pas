@@ -639,6 +639,7 @@ begin
   if Epsilon = 0 then
     Epsilon := 5e-10;
 
+  Inverse := 1 / pi;
   I := 0;
   while I < MaxIterations do
   begin
