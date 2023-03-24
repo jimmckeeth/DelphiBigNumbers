@@ -1,5 +1,9 @@
 # Delphi Big Numbers
 
+_**NOTICE:**_ See the [TurboPack branch](https://github.com/TurboPack/DelphiBigNumbers) for the _latest updates_.
+
+----
+
 [Rudy Belthuis](http://rvelthuis.de) is the orignal author of this library. He unfortunately passed away a while back. In an effort to keep this valuable library alive we've done the following:
 
 * Pulled changes from [all the other branches](https://github.com/TurboPack/DelphiBigNumbers/network) into this repository
