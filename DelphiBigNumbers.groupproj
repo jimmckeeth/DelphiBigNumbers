@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{56E34B7D-69CF-4D0F-B5F2-CA08264A1AB2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Visualizers\BigNumbers.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Visualizers\BigNumVisualizers.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Visualizers\BigNumberVisualizers.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Source\GenerateBaseConversionTables.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BigNumbers">
+        <MSBuild Projects="Visualizers\BigNumbers.dproj"/>
+    </Target>
+    <Target Name="BigNumbers:Clean">
+        <MSBuild Projects="Visualizers\BigNumbers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigNumbers:Make">
+        <MSBuild Projects="Visualizers\BigNumbers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BigNumVisualizers">
+        <MSBuild Projects="Visualizers\BigNumVisualizers.dproj"/>
+    </Target>
+    <Target Name="BigNumVisualizers:Clean">
+        <MSBuild Projects="Visualizers\BigNumVisualizers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigNumVisualizers:Make">
+        <MSBuild Projects="Visualizers\BigNumVisualizers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BigNumberVisualizers">
+        <MSBuild Projects="Visualizers\BigNumberVisualizers.dproj"/>
+    </Target>
+    <Target Name="BigNumberVisualizers:Clean">
+        <MSBuild Projects="Visualizers\BigNumberVisualizers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BigNumberVisualizers:Make">
+        <MSBuild Projects="Visualizers\BigNumberVisualizers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GenerateBaseConversionTables">
+        <MSBuild Projects="Source\GenerateBaseConversionTables.dproj"/>
+    </Target>
+    <Target Name="GenerateBaseConversionTables:Clean">
+        <MSBuild Projects="Source\GenerateBaseConversionTables.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GenerateBaseConversionTables:Make">
+        <MSBuild Projects="Source\GenerateBaseConversionTables.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BigNumbers;BigNumVisualizers;BigNumberVisualizers;GenerateBaseConversionTables"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BigNumbers:Clean;BigNumVisualizers:Clean;BigNumberVisualizers:Clean;GenerateBaseConversionTables:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BigNumbers:Make;BigNumVisualizers:Make;BigNumberVisualizers:Make;GenerateBaseConversionTables:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

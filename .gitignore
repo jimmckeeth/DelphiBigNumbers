@@ -1,4 +1,4 @@
-# NEVER FORGET: Git is case-sensitive!
+# REMEMBER: Git is case-sensitive!
 
 *.todo
 **/__history/
@@ -40,7 +40,6 @@ info.plist.TemplateOSX.xml
 *.exe
 *.dll
 *.tvsconfig
-# *.groupproj
 *.groupproj.local
 *.todo
 *.txaPackage
