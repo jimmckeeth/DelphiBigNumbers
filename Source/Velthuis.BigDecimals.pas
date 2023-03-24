@@ -10,7 +10,7 @@
 {                                                                           }
 { License:    BSD 2-Clause License - See LICENSE.md                         }
 {                                                                           }
-{ Latest:     https://github.com/jimmckeeth/DelphiBigNumbers/               }
+{ Latest:     https://github.com/TurboPack/DelphiBigNumbers/                }
 {---------------------------------------------------------------------------}
 
 {---------------------------------------------------------------------------}

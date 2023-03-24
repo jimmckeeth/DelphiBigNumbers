@@ -1,17 +1,17 @@
-﻿{---------------------------------------------------------------------------}
-{                                                                           }
-{ File:       Velthuis.BigIntegers.Primes.pas                               }
-{ Function:   Prime functions for BigIntegers                               }
-{ Language:   Delphi version XE2 or later                                   }
-{ Author:     Rudy Velthuis                                                 }
-{ Copyright:  (c) 2017 Rudy Velthuis                                        }
-{ Notes:      See http://rvelthuis.de/programs/bigintegers.html             }
-{             See https://github.com/jimmckeeth/DelphiBigNumbers/           }
-{                                                                           }
-{ License:    BSD 2-Clause License - See LICENSE.md                         }
-{                                                                           }
-{ Latest:     https://github.com/jimmckeeth/DelphiBigNumbers/               }
-{---------------------------------------------------------------------------}
+﻿{-----------------------------------------------------------------------------------}
+{                                                                                   }
+{ File:       Velthuis.BigIntegers.Primes.pas                                       }
+{ Function:   Prime functions for BigIntegers                                       }
+{ Language:   Delphi version XE2 or later                                           }
+{ Author:     Rudy Velthuis                                                         }
+{ Copyright:  (c) 2017 Rudy Velthuis                                                }
+{ Notes:      See https://github.com/TurboPack/DelphiBigNumbers/wiki/BigIntegers    }
+{             See https://github.com/TurboPack/DelphiBigNumbers/                    }
+{                                                                                   }
+{ License:    BSD 2-Clause License - See LICENSE.md                                 }
+{                                                                                   }
+{ Latest:     https://github.com/TurboPack/DelphiBigNumbers/                        }
+{-----------------------------------------------------------------------------------}
 
 unit Velthuis.BigIntegers.Primes;
 
